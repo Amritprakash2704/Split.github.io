@@ -1,0 +1,50 @@
+.container{
+    font-family: 'Federant', cursive;
+    box-sizing: border-box;
+}
+.top{
+    background-color: rgb(10, 92, 5);
+    color: aliceblue;
+    overflow: auto;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 0px;
+}
+#logo{
+    width: 60px;
+    display: inline-block;
+    float: left ;
+    margin: 2px 12px;
+    padding: 0px 20px;
+}
+#title{
+    /* background-color: blue; */
+    font-size: 110%;
+    font-weight: bold;
+    width: 50px;
+    display: inline-block;
+    margin-top: 2px;
+    float: left ;
+    margin: 21px 0px;
+    padding: 4px 2px;
+}
+#Login{
+    float: right;
+    /* border: 2px solid red; */
+    margin: 21px 0px;
+    padding: 4px 30px;
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+a:hover{
+    color: rgb(208, 85, 233);
+}a:visited{
+    color: rgb(218, 138, 42);
+}
+a:active{
+    color: rgb(97, 174, 241);
+}

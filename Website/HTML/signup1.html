@@ -1,73 +1,38 @@
 <!DOCTYPE html>
-<html lang="en-IN">
+<html lang="en">
 <head>
-   <meta charset="utf-8"/>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link href="https://fonts.googleapis.com/css2?family=Federant&display=swap" rel="stylesheet"/>
-   <link rel="icon" type="image/x-icon" href="images/favicon.png"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Federant&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
     <title>$plit</title>
-    <style>
-        body{
-            background-color:rgb(238, 241, 240) ;
-            font-family: 'Federant', cursive;
-        }
-       .grid-container{
-         display: grid;
-         grid-template-areas: 'header'
-                               'main'
-                             'footer';
-       }
-       .header{
-         grid-area : header;
-        
-        height:100px;
-         width: 100%;
-       
-       }
-       .main{
-       grid-area : main;
-      
-      
-       }
-       .footer{
-           grid-area: footer;
-           background-color: black;
-           color: aliceblue;
-           height:100%;
-           font-size:100%;
-           margin-bottom: 0px;
-       }
-      
-    </style>
+    <link rel="stylesheet" href="/Website/CSS/signup.css" />
 </head>
 <body>
-    <div class="grid-container">
-<div class="header">
-<h1 style="text-align: center ;">$PLIT</h1>
-</div>
-<div class="main">
-    <form method="post" enctype="multipart/form-data" action="signup.php" style="font-size : 200% ;margin-left : 10%;">
-        <label for="name">Name* :</label><br/>
-        <input type="text" id="name" placeholder="Pir0_C0mder (something cool)" autofocus required><br/>
-        <label for="username">Username* :</label><br/>
-       <input type="email" id="username" placeholder="Your Email" required><br/>
-       <label for="password">Password* :</label><br/>
-       <input type="password" id="password" required><br/>
-       <label for="repassword">Confirm Password* :</label><br/>
-       <input type="password" id="repassword" required><br/>
-       <label for="profile">Profile Picture* :</label><br/>
-       <input type="file" value="Choose File" required id="profile">
-      
-       <br/>
-       <label for="dob">Date of Birth : (optional)</label><br/>
-       <input type="date" id="dob">
-       <br/>
-       <input type="submit" value="SignUp" id="signup">
-    </form>
-</div>
-<div class="footer">
-Footer
-</div>
-</div>
+    <div class="container">
+        <header class="top">
+            <img id="logo" src="/images/favicon.png" alt="Logo">
+            <h3 id="title">$plit</h3>
+            <h3 id="Login"><a href="login.html" target="_blank">Login</a></h3>
+        </header>
+        <div class="second">
+            <section class="form">
+                <form method="post" action="">
+                    <label for="name">Name :</label>
+                    <input type="text" id="name" required autofocus placeholder="John" />
+                    <label for="username"> Username :</label>
+                    <input type="email" id="username" required placeholder="abc@gmail.com" />
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" required placeholder="password.." />
+                    <label for="confirmpassword">Confirm-Password :</label >
+                    <input type="password" id="confirmpassword" required placeholder="confirm-password..">
+                    <label for="profilepic">Profile-Picture :</label>
+                    <input type="file" id="profilepic" required >
+                     <input type="submit" id="submit" formenctype="multipart/form-data" value="Sign-Up" />
+                </form>
+            </section>
+        </div>
+     </div>
 </body>
 </html>
