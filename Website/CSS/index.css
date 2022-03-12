@@ -76,7 +76,8 @@ a:active{
        padding: 5px 10px;
        font-family: 'Federant', cursive;
        color: aliceblue;
-       margin:30px 6px
+       margin:30px 6px;
+       width: 100px;
    }
    #signin:hover{
        background-color: rgb(204, 162, 243);

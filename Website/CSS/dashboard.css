@@ -1,0 +1,72 @@
+.container{
+    font-family: 'Federant', cursive;
+    
+}
+.top{
+    display: flex;
+    margin: auto;
+    background-color: rgb(7, 83, 7);
+    width: 95vw;
+    height: 10vh;
+    border-radius: 10px;
+    flex-direction: row ;
+    position:sticky;
+    top: 10px;
+}
+img{
+    
+    width: 50px;
+    /* margin-bottom: 4px; */
+    padding: 5px 7px;
+}
+h3{
+    color: aliceblue;padding: 0px 20px;
+    font-size: 150%;
+    margin: 13px 10px;
+}
+#menu{
+   
+    margin: 0px 75vw;
+}
+#menu:hover{
+    cursor: pointer;
+    background-color: green;
+}
+.first{
+   
+    background-color: rgb(228, 145, 245);
+    border-radius: 15px;
+    height: 60px;
+    width:60px;
+    position:fixed;
+    margin:70vh 90vw
+  
+}
+body{
+    background-image: url(../../images/Money-Heist-PNG-Clipart.png);
+    background-repeat: no-repeat;
+    background-size: 120vh;
+    background-position-x: center;
+    background-position-y: 100px;
+    background-blend-mode:hard-light;
+}
+.cards{
+    border: 2px solid red; 
+   
+    width: 80vw;
+    height: 80vh;
+    margin: 5vh auto;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    
+
+}
+.card{
+    display: inline-block;
+    border: 2px solid rgb(6, 130, 245);
+    border-radius: 20px;
+    width: 35vw;
+    height: 200px;
+   
+}
