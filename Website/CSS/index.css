@@ -95,6 +95,7 @@ a:active{
    }
    #forgotpass{
        color: rgb(67, 107, 238);
+       font-weight: bold;
       }#forgotpass:hover{
           color: brown;
       }

@@ -48,3 +48,42 @@ a:hover{
 a:active{
     color: rgb(97, 174, 241);
 }
+.body1{
+    background-image: url(/images/Signupbg.png);
+    background-repeat: no-repeat;
+    background-position-x: 350px ;
+    background-position-y: 70px;
+    font-family: 'Federant', cursive;
+    /* background-size: 200px; */
+}
+.second{
+   
+    width: 350px;
+  margin-left: 45% ;
+ margin-top: 4%;
+}
+.form{
+    display: block;
+    margin: 2px 2px;
+    padding: 5px 5px ;
+    font-size: 120%;
+    width: 300px;
+}
+#profilepic{
+    width: 100pxpx;
+    height: 30px;
+    
+}
+#submit{
+    width: 100px;
+    margin-left: 7px;
+    background-color: rgb(13, 112, 241);
+    border-radius: 6px;
+    color: azure;
+    font-family: 'Federant', cursive ;
+}
+#submit:hover{
+      background-color: rgb(112, 169, 243);
+      cursor: pointer;
+}
+
