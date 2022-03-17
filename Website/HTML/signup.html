@@ -18,7 +18,7 @@
         </header>
         <div class="second">
             <section class="body">
-                <form  onsubmit="fillform()" method="post" id="form">
+                <form  id="form">
                     <label class="form" for="name">Name :</label>
                     <input class="form" type="text" id="name" required autofocus placeholder="John" />
                     <label class="form" for="username"> Username :</label>
@@ -26,16 +26,20 @@
                     <label class="form" for="password">Password :</label>
                     <input class="form" type="password" id="password" required placeholder="password.." />
                     <label class="form" for="confirmpassword">Confirm-Password :</label >
-                        <input class="form" type="password" id="confirmpassword" required placeholder="confirm-password..">
+                        <input class="form" type="password" id="confirmpassword" required placeholder="confirm-password.." />
                         <label class="form" for="profilepic">Profile-Picture :</label>
                         <input class="form" type="file" id="profilepic"  />
                      <input class="form" type="submit" id="submit" formenctype="multipart/form-data" value="Sign-Up" />
                     </form>
+                    <p id="hint" style="visibility : hidden;">if no error was shown you can login else follow the error .</p>
                 </section>
             </div>
         </div>
       
-         
-        <script  type="module" src="../Javascript/firesignup.js"></script>
+       <script type="module" src="../Javascript/firesignup.js">
+        
+       </script>
+      
+       
     </body>
 </html>

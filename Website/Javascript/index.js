@@ -1,5 +1,11 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCyTYhrssyWhM1P6db_ZS_UYXHzCEupX8g",
   authDomain: "split-662dd.firebaseapp.com",
@@ -12,8 +18,14 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-signInWithEmailAndPassword(auth, email, password)
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const form= document.querySelector('#form');
+form.addEventListener("submit" , event=>{
+  event.preventDefault();
+  const email=document.getElementById('username');
+  const password=document.getElementById('id_password');
+  signInWithEmailAndPassword(auth, email.value, password.value)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
@@ -22,15 +34,7 @@ signInWithEmailAndPassword(auth, email, password)
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
+    window.alert(errorMessage);
   });
 
-const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#id_password');
-
-togglePassword.addEventListener('click', function (e) {
-  // toggle the type attribute
-  const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-  password.setAttribute('type', type);
-  // toggle the eye slash icon
-  this.classList.toggle('fa-eye-slash');
 });
