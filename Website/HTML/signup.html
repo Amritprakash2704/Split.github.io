@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Federant&display=swap" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
-    <title>$plit</title>
-    <link rel="stylesheet" href="../CSS/signup.css" />
-</head>
-<body class="body1">
-    <div class="container">
-        <header class="top">
-            <img id="logo" src="../../images/favicon.png" alt="Logo">
-            <h3 id="title">$plit</h3>
-            <h3 id="Login"><a href="../../index.html" >Login</a></h3>
-            <script src="../Javascript/firebase.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Federant&display=swap" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+        <title>$plit</title>
+        <link rel="stylesheet" href="../CSS/signup.css" />
+    </head>
+    <body class="body1">
+        <div class="container">
+            <header class="top">
+                <img id="logo" src="../../images/favicon.png" alt="Logo">
+                <h3 id="title">$plit</h3>
+                <h3 id="Login"><a href="../../index.html" >Login</a></h3>
         </header>
         <div class="second">
             <section class="body">
-                <form method="post" action="">
+                <form  onsubmit="fillform()" method="post" id="form">
                     <label class="form" for="name">Name :</label>
                     <input class="form" type="text" id="name" required autofocus placeholder="John" />
                     <label class="form" for="username"> Username :</label>
@@ -27,13 +26,16 @@
                     <label class="form" for="password">Password :</label>
                     <input class="form" type="password" id="password" required placeholder="password.." />
                     <label class="form" for="confirmpassword">Confirm-Password :</label >
-                    <input class="form" type="password" id="confirmpassword" required placeholder="confirm-password..">
-                    <label class="form" for="profilepic">Profile-Picture :</label>
-                    <input class="form" type="file" id="profilepic"  />
+                        <input class="form" type="password" id="confirmpassword" required placeholder="confirm-password..">
+                        <label class="form" for="profilepic">Profile-Picture :</label>
+                        <input class="form" type="file" id="profilepic"  />
                      <input class="form" type="submit" id="submit" formenctype="multipart/form-data" value="Sign-Up" />
-                </form>
-            </section>
+                    </form>
+                </section>
+            </div>
         </div>
-     </div>
-</body>
+      
+         
+        <script  type="module" src="../Javascript/firesignup.js"></script>
+    </body>
 </html>

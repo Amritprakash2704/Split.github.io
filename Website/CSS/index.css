@@ -4,7 +4,7 @@ body{
     background-position: center;
     background-size: 400px;
 }
-.container{
+.contain{
     font-family: 'Federant', cursive;
     box-sizing: border-box;
 }
@@ -89,7 +89,7 @@ a:active{
           height: 20px;
           font-family: 'Federant' cursive;
    }
-   #password{
+   #id_password{
     width: 300px;
     height: 20px;
     font-family: 'Federant' cursive;

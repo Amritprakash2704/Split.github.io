@@ -8,51 +8,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Federant&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="images/favicon.png" />
     <link rel="stylesheet" href="Website/CSS/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  
     <title>$plit</title>
     
 </head>
 
 <body>
-    <script type="module" >
-        // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCyTYhrssyWhM1P6db_ZS_UYXHzCEupX8g",
-  authDomain: "split-662dd.firebaseapp.com",
-  projectId: "split-662dd",
-  storageBucket: "split-662dd.appspot.com",
-  messagingSenderId: "418787962459",
-  appId: "1:418787962459:web:ef0be705d33a524630997e",
-  measurementId: "G-9ERQKCWY34"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-    </script>
-    <div class="container">
+   
+    <div class="contain">
         <header class="top">
             <img id="logo" src="images/favicon.png" alt="Logo">
             <h3 id="title">$plit</h3>
             <h3 id="Signup"><a href="Website/HTML/signup.html" >SignUp</a></h3>
         </header>
         <section class="body">
-            <form action="" method="post">
+            <form  method="post">
                 <label class="form" for="username">Username :</label>
                 <input class="form" type="email" id="username" placeholder="abc@gmail.com" required autofocus />
                 <label class="form" for="password">Password :</label>
-                <input class="form" type="password" id="password" placeholder="Enter your password.." required />
+                <input class="form" type="password" id="id_password" placeholder="Enter your password.." required />
+                <i class="far fa-eye" id="togglePassword" style="margin-left: 0px; cursor: pointer;"></i>
+                
                 <input class="form" type="submit" id="signin" value="Signin" />
             </form>
             <a id="forgotpass" href="forgotpassword.html">Forgot Password ?</a>
         </section>
     </div>
+    <script type="module" src="./Website/Javascript/firebase.js">
+      
+    </script>
+   
 </body>
 
 </html>
