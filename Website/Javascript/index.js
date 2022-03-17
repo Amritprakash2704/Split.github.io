@@ -15,7 +15,7 @@ const firebaseConfig = {
   appId: "1:418787962459:web:ef0be705d33a524630997e",
   measurementId: "G-9ERQKCWY34"
 };
-
+ let s =1;
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -28,13 +28,21 @@ form.addEventListener("submit" , event=>{
   signInWithEmailAndPassword(auth, email.value, password.value)
   .then((userCredential) => {
     // Signed in 
-    const user = userCredential.user;
+   const user = userCredential.user;
+   sessionStorage.setItem('Userid',user.uid);
+   
     // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    window.alert(errorMessage);
+    s=0;
+    window.alert(errorMessage + errorCode);
   });
-
+ 
+  if(s==1){
+     document.getElementById('hint').style.visibility="visible";    }
+  else{
+    return;
+  }
 });
