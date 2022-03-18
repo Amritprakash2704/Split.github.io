@@ -26,3 +26,17 @@ body{
     margin: auto,auto;
     
 }
+#plus{
+    float: right;
+}
+#plus:hover{
+
+    background-color: rgb(255, 72, 0);
+}
+.pic-f{
+    margin: 1px;
+}
+.tran-f{
+    margin: 8px 2px;
+    padding: 3px 5pxpx;
+}

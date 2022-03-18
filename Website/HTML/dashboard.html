@@ -42,11 +42,12 @@
 </nav>
 <div class="container-fluid p-2  text-dark justify-content-around">
     <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-3">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Groups</h4>
                 <a href="#" class="btn btn-outline-success">Go to groups</a>
+                <!-- <a href="#" class="nav-link" id="plus" data-bs-toggle="modal" data-bs-target="#groups-modal"><img src="../../images/plus.png" style="width: 30px;" data-bs-toggle="tooltip" title="add transactions"></a> -->
             </div>
             <div class="card-body">Name :Amrit Prakash<br> Amount :Rs 2000</div>
             <div class="card-body">Name :Amrit Prakash<br> Amount :Rs 2000</div>
@@ -55,7 +56,7 @@
             <div class="card-body">Name :Amrit Prakash<br> Amount :Rs 2000</div>
         </div>
     </div>
-    <div class="col-sm-5">
+    <div class="col-sm-3">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Recent Transactions</h4>
@@ -69,8 +70,29 @@
             </div>
 
         </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Add Transactions :
+                    </h4>
+                </div>
+                <div class="card-body">
+                   <form  id="transac">
+                       <label for="transac-group" class="form-label">Group:</label>
+                       <input type="text" id="transac-group"class="form-control tran-f" placeholder="Group Name..">
+                       <label for="transac-person" class="form-label">Person:</label>
+                       <input type="text"  id="transac-person"class="form-control tran-f"  placeholder="Person Name..">
+                       <label for="transac-amount" class="form-label">Amount:</label>
+                      <input type="text"  id="transac-amount"class="form-control tran-f"  placeholder="Amount in Rs">
+                      <input type="submit" class="form-control tran-f btn-outline-primary" value="Add">
+                   </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 
 
 <div class="modal" id="profile-modal">
@@ -93,11 +115,11 @@
           </div>
           <div class="col-sm-5 align-content-center" >
               <img src="../../images/man.png" id="profile-pic" alt="No profile found" style="width: 100px;"/><br>
-              <a class="btn btn-outline-dark" style="padding: 2px 2px;visibility: visible;" id="pic-change" >Change Profile-pic</a>
+              <a class="btn btn-outline-dark pic-f" style="padding: 2px 2px;visibility: visible;" id="pic-change" >Change Profile-pic</a>
                <form id="pic-form" style="visibility: hidden;">
-              <input type="file" name="picture" id="picture"  >
-              <input type="submit" value="submit" class="btn btn-info">
-              <a href="#" class="btn btn-success" id="nopic">No profile</a>
+              <input type="file" class="form-control pic-f" name="picture" id="picture"  >
+              <input type="submit" value="submit" class="form-control pic-f">
+              <a href="#" class="btn btn-success pic-f" id="nopic">No profile</a>
             </form>
           </div>
         </div></div></div>
@@ -107,7 +129,6 @@
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
           </div>
       </div></div></div>
-      
      
 <script type="module" src="../Javascript/dashboard.js">
 

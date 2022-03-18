@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
 import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
-import { getDatabase, ref, onValue  , child, get } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+import { getDatabase, ref, onValue  , child, get , set } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
 import { getStorage,ref as rf ,uploadBytes,getDownloadURL,deleteObject } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-storage.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -79,6 +79,20 @@ deleteObject(storageRef).then(() => {
   });
 document.getElementById('pic-form').style.visibility="hidden";
 document.getElementById('pic-change').style.visibility="visible";
+});
+
+document.getElementById('transac').addEventListener('submit',event=>{
+    event.preventDefault();
+    const group=document.getElementById('transac-group');
+    const person=document.getElementById('transac-person');
+    const amount=document.getElementById('transac-amount');
+    console.log(group.value+person.value+amount.value);
+    
+    set(ref(database,'users/'+userid+'/Groups/'+group.value),{
+       Person:person.value,
+       Amount:amount.value
+    })
+    window.alert('Done refresh to add more');
 });
 
 
