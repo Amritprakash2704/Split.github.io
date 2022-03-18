@@ -100,3 +100,9 @@ a:active{
       }#forgotpass:hover{
           color: brown;
       }
+#hint{
+    color: rgb(67, 107, 238);
+       font-weight: bold; 
+}#hint:hover{
+    color: brown;
+}
