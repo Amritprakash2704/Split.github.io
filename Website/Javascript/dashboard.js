@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
-
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+import { getDatabase, ref, onValue  , child, get } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+import { getStorage,ref as rf ,uploadBytes,getDownloadURL,deleteObject } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-storage.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
@@ -19,3 +21,64 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const database= getDatabase(app);
+const userid = sessionStorage.getItem('Userid');
+const storage=getStorage(app);
+const storageRef = rf(storage, "profile-pics/"+userid);
+var profilepic=document.getElementById('picture');
+console.log(userid);
+const dbref=ref(database);
+get(child(dbref,"users/"+userid)).then((snapshot)=>{
+    if (snapshot.exists()) {
+        document.getElementById('name').placeholder=snapshot.val().name;
+        document.getElementById('email').placeholder=snapshot.val().email;
+       
+      } else {
+        window.alert("user not found");
+      }
+})
+// sessionStorage.removeItem('Userid');
+getDownloadURL(storageRef)
+.then((url) => {
+  console.log(url);
+  document.getElementById('profile-pic').src=url;
+ })
+
+document.getElementById('logout').addEventListener("click",event=>{
+    sessionStorage.removeItem('Userid');
+   signOut(auth).then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+    
+});
+
+document.getElementById('pic-change').addEventListener("click", event=>{
+    document.getElementById('pic-form').style.visibility="visible";
+    document.getElementById('pic-change').style.visibility="hidden";
+});
+document.getElementById('pic-form').addEventListener("submit",event=>{
+    event.preventDefault();
+
+    uploadBytes(storageRef, profilepic.files[0]).then((snapshot) => {
+        console.log(snapshot.url);
+        console.log('Uploaded a blob or file!');
+    });
+    document.getElementById('pic-form').style.visibility="hidden";
+    document.getElementById('pic-change').style.visibility="visible";
+});
+document.getElementById('nopic').addEventListener('click',event=>
+{   document.getElementById('profile-pic').src="../../images/man.png";
+deleteObject(storageRef).then(() => {
+    console.log("deleted successfully");
+    // File deleted successfully
+  }).catch((error) => {
+    // Uh-oh, an error occurred!
+  });
+document.getElementById('pic-form').style.visibility="hidden";
+document.getElementById('pic-change').style.visibility="visible";
+});
+
+

@@ -16,3 +16,13 @@ body{
    
     justify-content: space-around;
 }
+#name{
+    margin: 2px;
+}
+#email{
+    margin: 2px;
+}
+#profile-pic{
+    margin: auto,auto;
+    
+}

@@ -3,6 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import { getDatabase, ref , set } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+import { getStorage,ref as rf ,uploadBytes,getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-storage.js";
+// import{ref as rf} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-storage.js" ;
 // import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -23,6 +25,8 @@ const firebaseConfig = {
  const analytics = getAnalytics(app);
  const auth= getAuth(app);
  const database = getDatabase(app);
+ const storage=getStorage(app);
+ 
 // export app1 = initializeApp(firebaseConfig);
 // expo analytics1 = getAnalytics(app);
 
@@ -45,9 +49,22 @@ document.getElementById('form').addEventListener("submit",event=>{
    console.log(user);
    console.log(name.value+"test");
    console.log(email.value + "test1");
+   const storageRef = rf(storage, "profile-pics/"+user.uid);
+   uploadBytes(storageRef, profilepic.files[0]).then((snapshot) => {
+     console.log(snapshot.url);
+     console.log('Uploaded a blob or file!');
+   });
+  //  let a;
+  //  getDownloadURL(storageRef)
+  // .then((url) => {
+  //   console.log(url);
+  //   a=url;
+  //  console.log(a);})
+  
    set(ref(database, 'users/' + user.uid), {
     name:name.value,
     email: email.value,
+    profilepic: "Hemlo",
     Groups:{
       ToApp: "Rs 1"
     },
@@ -61,7 +78,9 @@ document.getElementById('form').addEventListener("submit",event=>{
     window.alert(errorMessage );
   });
   document.getElementById('hint').style.visibility="visible";
-}else{
+}
+
+else{
   window.alert("password and confirm password fields should have the same input");
   return;
 }
@@ -71,7 +90,7 @@ document.getElementById('form').addEventListener("submit",event=>{
 
 
 });
-export var user;
+
 
   
 
