@@ -40,3 +40,8 @@ body{
     margin: 8px 2px;
     padding: 3px 5pxpx;
 }
+.vertical-scrollable {
+   
+  height: 450px;
+    overflow-y: scroll; 
+  }

@@ -64,10 +64,8 @@ document.getElementById('form').addEventListener("submit",event=>{
    set(ref(database, 'users/' + user.uid), {
     name:name.value,
     email: email.value,
-    profilepic: "Hemlo",
-    Groups:{
-      ToApp: "Rs 1"
-    },
+    
+    
   });
 })
 

@@ -2,12 +2,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
 import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
-import { getDatabase, ref, onValue  , child, get , set } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
+import { getDatabase, ref, onValue  , child, get , set,push,update} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-database.js";
 import { getStorage,ref as rf ,uploadBytes,getDownloadURL,deleteObject } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-storage.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js"
+
 const firebaseConfig = {
   apiKey: "AIzaSyCyTYhrssyWhM1P6db_ZS_UYXHzCEupX8g",
   authDomain: "split-662dd.firebaseapp.com",
@@ -17,12 +15,13 @@ const firebaseConfig = {
   appId: "1:418787962459:web:ef0be705d33a524630997e",
   measurementId: "G-9ERQKCWY34"
 };
-
+"use strict";
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const database= getDatabase(app);
+const cloud=getFirestore(app);
 const userid = sessionStorage.getItem('Userid');
 const storage=getStorage(app);
 const storageRef = rf(storage, "profile-pics/"+userid);
@@ -37,7 +36,7 @@ get(child(dbref,"users/"+userid)).then((snapshot)=>{
       } else {
         window.alert("user not found");
       }
-})
+});
 // sessionStorage.removeItem('Userid');
 getDownloadURL(storageRef)
 .then((url) => {
@@ -86,13 +85,82 @@ document.getElementById('transac').addEventListener('submit',event=>{
     const group=document.getElementById('transac-group');
     const person=document.getElementById('transac-person');
     const amount=document.getElementById('transac-amount');
-    console.log(group.value+person.value+amount.value);
-    
-    set(ref(database,'users/'+userid+'/Groups/'+group.value),{
-       Person:person.value,
-       Amount:amount.value
-    })
-    window.alert('Done refresh to add more');
+    console.log(group+person+amount);
+    let val=30;
+    get(child(dbref, 'users/'+userid+'/group/'+group.value+'/Amount')).then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot.val());
+        let sum;
+      sum= parseInt(snapshot.val());
+       sum+=parseInt(amount.value);
+      sessionStorage.setItem('sum',sum);
+        console.log(sum);
+        
+      } else {
+        
+        let sum;
+         sum=amount.value;
+         sessionStorage.setItem('sum',sum);
+        console.log("No data available");
+        
+      }
+    }).catch((error) => {
+      
+    });
+    setTimeout(settransac,2000)
+    function settransac() { 
+      
+      val= sessionStorage.getItem('sum');
+      console.log(val);
+  set(ref(database,'users/'+userid+'/group/'+group.value), {
+      Amount:val,
+      }).then((check)=>{
+        console.log("sucessful");
+      })
+    };
+   const add = {
+     Amount: amount.value
+   }
+   const newPostKey = push(child(ref(database), 'posts')).key;
+
+   // Write the new post's data simultaneously in the posts list and the user's post list.
+   const updates = {};
+   updates['/users/'+ userid+'/Groups/'+group.value+'/'+person.value+'/'+ newPostKey] = add;
+   setTimeout(reload,6000);
+   return update(ref(database), updates);
+   
+   
 });
+
+get(child(dbref, 'users/'+userid+'/group/')).then((snapshot) => {
+  if (snapshot.exists()) {
+   const x =snapshot.val();
+    console.log(x);  
+    create(x);   
+  } else {
+    console.log("No data available");
+  }
+}).catch((error) => {
+  console.error(error);
+});
+function create(cr){
+    for(let y in cr){
+      for(let z in cr[y]){
+        const div = document.createElement("div");
+        div.setAttribute("class","card-body created");
+        const para = document.createElement("p");
+        para.appendChild(document.createTextNode("Group : "+y));
+        div.appendChild(para);
+        div.appendChild(document.createTextNode("Amount : "+cr[y][z]));
+        const element = document.getElementById("card1");
+        element.appendChild(div);
+       
+      }
+    }
+};
+function reload(){
+  window.location.reload();
+  // console.log("Hello");
+}
 
 
