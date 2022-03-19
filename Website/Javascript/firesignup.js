@@ -53,6 +53,7 @@ document.getElementById('form').addEventListener("submit",event=>{
    uploadBytes(storageRef, profilepic.files[0]).then((snapshot) => {
      console.log(snapshot.url);
      console.log('Uploaded a blob or file!');
+     setTimeout(gotosignin,1000);
    });
   //  let a;
   //  getDownloadURL(storageRef)
@@ -67,6 +68,7 @@ document.getElementById('form').addEventListener("submit",event=>{
     
     
   });
+  window.alert("Login successful");
 })
 
   .catch((error)=>{
@@ -74,8 +76,9 @@ document.getElementById('form').addEventListener("submit",event=>{
     const errorMessage = error.message;
     console.log(error);
     window.alert(errorMessage );
+    setTimeout(refresh,1000);
   });
-  document.getElementById('hint').style.visibility="visible";
+
 }
 
 else{
@@ -88,6 +91,12 @@ else{
 
 
 });
+function gotosignin(){
+  window.location.replace("../../index.html");
+};
+function refresh(){
+  form.reset();
+}
 
 
   

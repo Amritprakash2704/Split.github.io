@@ -30,7 +30,7 @@ form.addEventListener("submit" , event=>{
     // Signed in 
    const user = userCredential.user;
    sessionStorage.setItem('Userid',user.uid);
-   
+   setTimeout(gotodashboard,1000);
     // ...
   })
   .catch((error) => {
@@ -40,9 +40,9 @@ form.addEventListener("submit" , event=>{
     window.alert(errorMessage + errorCode);
   });
  
-  if(s==1){
-     document.getElementById('hint').style.visibility="visible";    }
-  else{
-    return;
-  }
+ 
 });
+function gotodashboard(){
+  window.location.replace("./Website/HTML/dashboard.html");
+};
+
