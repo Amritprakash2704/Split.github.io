@@ -12,3 +12,10 @@
 #brand{
    margin:0px auto;
 }
+#name{
+    overflow-x: scroll;
+}
+#email{
+    overflow-x: scroll;
+
+}
