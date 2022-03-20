@@ -44,3 +44,16 @@
 .card-body{
     z-index: -2;
 }
+a{
+    text-decoration: none;
+    color: aliceblue;
+}a:hover{
+    color: rgb(253, 249, 11);
+    cursor: pointer;
+}a:active{
+    color: rgb(30, 241, 23);
+}
+.modal-body{
+    height: 250px;
+    overflow-y: scroll;
+}

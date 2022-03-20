@@ -50,14 +50,74 @@
           </div> 
           <div class="card-body bg-secondary text-light pt-3">
             <div class="row">
-                <div class="col"><h4 class="card-title">Bros</h4></div>
-                <div class="col-sm-4"><button class="btn btn-primary finish" style="float: right;">Finish</button></div>
+                <div class="col"><a class="card-title" data-bs-toggle="modal" data-bs-target="#group-modal"><h4>Bros</h4></a></div>
+                <div class="col-sm-4"><button class="btn btn-primary finish" style="float: right;" data-bs-toggle="tooltip" title="Settle sll your payments for this group">Finish</button></div>
             </div>
           </div>
        
         
        </div>
         </section>
+        <div class="modal" id="group-modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <div class="modal-header">
+                  <h4 class="modal-title" id="group">Group : </h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Not Found" readonly>
+                        <button class="btn btn-success" type="submit">Finish</button>
+                      </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Not Found" readonly>
+                        <button class="btn btn-success" type="submit">Finish</button>
+                      </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Not Found" readonly>
+                        <button class="btn btn-success" type="submit">Finish</button>
+                      </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Not Found" readonly>
+                        <button class="btn btn-success" type="submit">Finish</button>
+                      </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Not Found" readonly>
+                        <button class="btn btn-success" type="submit">Finish</button>
+                      </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Not Found" readonly>
+                        <button class="btn btn-success" type="submit">Finish</button>
+                      </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Not Found" readonly>
+                        <button class="btn btn-success" type="submit">Finish</button>
+                      </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Not Found" readonly>
+                        <button class="btn btn-success" type="submit">Finish</button>
+                      </div>
+                </div>
+          
+                <div class="modal-footer">
+                  <div class="dropdown navbar-nav pe-4 dropstart">
+                    <a data-bs-toggle="dropdown">  <img src="../../images/man.png" alt="profile" style="width: 40px;;"/></a>
+                   <ul class="dropdown-menu p-2" style="z-index:4;">
+                     <form id="form">
+                         <input type="file" class="form-control" />
+                         <input type="submit" class="form-control"/>
+                     </form>
+                    </ul>
+                </div>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+          
+              </div>
+            </div>
+          </div>
         <script type="module" src="../Javascript/groups.js"></script>
 </body>
 </html>
