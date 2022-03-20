@@ -5,6 +5,7 @@
 }
 .body{
     font-family: 'Federant', cursive;
+    box-sizing: border-box;
 }
 #logo{
     width: 55px;
@@ -18,4 +19,28 @@
 #email{
     overflow-x: scroll;
 
+}
+#card{
+ background-color: transparent;
+}
+.card-body{
+    border-radius: 10px;
+    margin:1px;
+    border: 2px solid rgb(253, 252, 252);
+}
+.vertical-scrollable {
+   
+    height: 430px;
+      overflow-y:scroll; 
+    
+      background-image: url(../../images/NoTransactions.png); 
+      background-repeat: no-repeat;
+      background-size: 300px;
+      background-position: center;
+    }
+    #headtransac{
+        border-radius: 20px;
+    }
+.card-body{
+    z-index: -2;
 }

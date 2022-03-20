@@ -41,7 +41,7 @@ body{
     padding: 3px 5pxpx;
 }
 .vertical-scrollable {
-   
+  background-image: url(../../images/NoTransactions.png); 
   height: 450px;
     overflow-y: scroll; 
   }
