@@ -1,0 +1,14 @@
+.top{
+    border-radius: 35px;
+    color: aliceblue;
+    box-sizing: border-box;
+}
+.body{
+    font-family: 'Federant', cursive;
+}
+#logo{
+    width: 55px;
+}
+#brand{
+   margin:0px auto;
+}
