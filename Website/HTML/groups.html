@@ -45,14 +45,15 @@
                <h3 class="card-title">Groups you are in :</h3>
            </div>
        </div> -->
-       <div class="container vertical-scrollable">
+       <div class="container vertical-scrollable" id="group-info">
           <div class="navbar navbar-expand-sm bg-info navbar-dark sticky-top ps-4" style="z-index:3;">
               <div class="navbar-brand " ><strong>Groups:</strong></div>
           </div> 
           <div class="card-body bg-secondary text-light pt-3">
             <div class="row">
-                <div class="col"><a class="card-title" data-bs-toggle="modal" data-bs-target="#group-modal"><h4>Bros</h4></a></div>
-                <div class="col-sm-4"><button class="btn btn-primary finish" style="float: right;" data-bs-toggle="tooltip" title="Settle sll your payments for this group">Finish</button></div>
+                <div class="col-sm-4"><a class="card-title" data-bs-toggle="modal" data-bs-target="#group-modal"><h4>Bros</h4></a></div>
+                <div class="col-sm-3">100</div>
+                <div class="col-sm-4"><button class="btn btn-primary finish"  data-bs-toggle="tooltip" title="Settle sll your payments for this group">Finish</button></div>
             </div>
           </div>
        
@@ -68,7 +69,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-                <div class="modal-body">
+                <div class="modal-body" id="group-modal-body">
                     <div class="input-group mb-3">
                       <a href="#" data-bs-toggle="dropdown" class="nav-link"> <input type="text" class="form-control" placeholder="Not Found" readonly></a>
                       <ul class="dropdown-menu dropstart">
@@ -83,7 +84,7 @@
           
                 <div class="modal-footer">
                   <div class="dropdown navbar-nav pe-4 dropstart">
-                    <a data-bs-toggle="dropdown">  <img src="../../images/man.png" alt="profile" style="width: 40px;;"/></a>
+                    <a data-bs-toggle="dropdown">  <img src="../../images/man.png" alt="profile" style="width: 40px;" id="profile-pic"/></a>
                    <ul class="dropdown-menu p-2" style="z-index:4;">
                      <form id="form">
                          <input type="file" class="form-control" />
