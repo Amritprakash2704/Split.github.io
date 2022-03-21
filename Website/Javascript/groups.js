@@ -26,6 +26,7 @@ get(child(dbref,"users/"+userid)).then((snapshot)=>{
 });
 get(child(dbref,"users/"+userid+'/group/')).then((snapshot)=>{
  if(snapshot.exists()) { const gr = snapshot.val();
+
    group(gr);}
    else{
        window.alert('No Transactions Yet');
@@ -35,37 +36,57 @@ get(child(dbref,"users/"+userid+'/group/')).then((snapshot)=>{
 });
 
 function group(gr){
-    let make = document.getElementById('group-info');
     console.log(gr);
     for(let x in gr){
+        let make = document.getElementById('group-info');
        let groupfirst=document.createElement('div');
-       groupfirst.setAttribute("class","card-body bg-secondary text-light pt-3")
-       let groupsecond=document.createElement('div');
-       groupsecond.setAttribute("class","row");
-       let groupthird1=document.createElement('div');
-       groupthird1.setAttribute("class","col-sm-4");
-       let groupthird1a=document.createElement('a');
+       groupfirst.setAttribute("class","card-body bg-secondary text-light pt-3");
+    //    let groupsecond=document.createElement('div');
+    //    groupsecond.setAttribute("class","row");
+    //    let groupthird1=document.createElement('div');
+    //    groupthird1.setAttribute("class","col-sm-4");
+    //    let groupthird1a=document.createElement('a');
+    //    groupthird1a.setAttribute("class","card-title");
+    //    groupthird1a.setAttribute("data-bs-toggle","modal");
+    //    groupthird1a.setAttribute("data-bs-target","#group-modal");
+    //    let groupthird1ah4=document.createElement('h4');
+    //    groupthird1ah4.appendChild(document.createTextNode(x));
+    //    groupthird1a.appendChild(groupthird1ah4);
+    //    groupthird1.appendChild(groupthird1a);
+    //    let groupthird2=document.createElement('div');
+    //    groupthird2.setAttribute("class","col-sm-3");
+    //    groupthird2.appendChild(document.createTextNode(gr[x][Amount]));
+    //    let groupthird3=document.createElement('div');
+    //    groupthird3.setAttribute("class","col-sm-4");
+    //    let button= document.createElement("button")
+    //    button.setAttribute("class","btn btn-primary finish");
+    //    button.setAttribute("data-bs-toggle","tooltip");
+    //    button.setAttribute("title","Settle all your payments for this group");
+    //    button.appendChild(document.createTextNode('Finish'));
+    //    groupthird3.appendChild(button);
+    //    groupsecond.appendChild(groupthird1);
+    //    groupsecond.appendChild(groupthird2);
+    //    groupsecond.appendChild(groupthird3);
+    //    groupfirst.appendChild(groupsecond);
+        let button= document.createElement("button")
+       button.setAttribute("class","btn btn-primary finish");
+       button.setAttribute("data-bs-toggle","tooltip");
+       button.setAttribute("title","Settle all your payments for this group");
+       button.appendChild(document.createTextNode('Finish'));
+       let groupthird1ah4=document.createElement('h4');
+       groupthird1ah4.appendChild(document.createTextNode(x));
+       let groupthirdp=document.createElement("p");
+       groupthirdp.appendChild(document.createTextNode("Amount : Rs "+gr[x]["Amount"]));
+      let groupthird1a=document.createElement('a');
        groupthird1a.setAttribute("class","card-title");
        groupthird1a.setAttribute("data-bs-toggle","modal");
        groupthird1a.setAttribute("data-bs-target","#group-modal");
-       let groupthird1ah4=document.createElement('h4');
-       groupthird1ah4.appendChild(document.createTextNode(x));
-       groupthird1.appendChild(groupthird1a.appendChild(groupthird1ah4));
-       let groupthird2=document.createElement('div');
-       groupthird2.setAttribute("class","col-sm-3");
-       griupthird2.appendChild(document.createTextNode(gr[x][Amount]));
-       let groupthird3=document.createElement('div');
-       groupthird3.setAttribute("class","col-sm-4");
-       let button= document.createElement("button")
-       button.setAttribute("class","btn btn-primary finish");
-       button.setAttribute("data-bs-toggle","tooltip");
-       button.setAttribute("title","Settle sll your payments for this group");
-       button.appendChild(document.createTextNode('Finish'));
-       groupthird3.appendChild(button);
-       groupsecond.appendChild(groupthird1);
-       groupsecond.appendChild(groupthird2);
-       groupsecond.appendChild(groupthird3);
-       groupfirst.appendChild(groupsecond);
+       groupfirst.appendChild(button);
+       groupthird1a.appendChild(groupthird1ah4);
+       groupfirst.appendChild(groupthird1a);
+       groupfirst.appendChild(groupthirdp);
+    //    groupfirst.appendChild(groupthird2);
+
        make.appendChild(groupfirst);
     }
 }
